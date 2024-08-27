@@ -1,0 +1,62 @@
+import React from 'react';
+import Radio from './forms/Radio';
+import Checkbox from './forms/Checkbox';
+import Input from './forms/Input';
+import Select from './forms/Select';
+import RadioComponent from './forms/RadioComponent';
+import CheckboxComponent from './forms/CheckboxComponent';
+function App() {
+  const [nome, setNome] = React.useState('');
+  const [email, setEmail] = React.useState('');
+
+  const [produto, setProduto] = React.useState('');
+  const [cor, setCor] = React.useState('');
+  const [frutas, setFrutas] = React.useState('');
+  const [linguagens, setLinguagens] = React.useState([]);
+
+  return (
+    <>
+      {/* <Radio /> */}
+      {/* <Checkbox /> */}
+
+      <form>
+        <h2>Checkbox</h2>
+        <CheckboxComponent
+          options={['JavaScript', 'PHP', 'Ruby']}
+          value={linguagens}
+          setValue={setLinguagens}
+        />
+        <h2>Cores</h2>
+        <RadioComponent
+          options={['azul', 'vermelho']}
+          value={cor}
+          setValue={setCor}
+        />
+
+        <h2>Frutas</h2>
+        <RadioComponent
+          options={['Banana', 'Tomate', 'Maçã']}
+          value={frutas}
+          setValue={setFrutas}
+        />
+
+        <Select
+          options={['smartphone', 'tablet']}
+          value={produto}
+          setValue={setProduto}
+        />
+        <Input label="Nome" id="nome" value={nome} setValue={setNome} />
+        <Input
+          label="Email"
+          id="email"
+          value={email}
+          setValue={setEmail}
+          required
+        />
+        <button>Enviar</button>
+      </form>
+    </>
+  );
+}
+
+export default App;
